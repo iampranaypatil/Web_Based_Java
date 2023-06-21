@@ -1,0 +1,53 @@
+Image Handling steps
+Objective : Save n restore image to / from DB 
+Maven dependency (alrdy added in pom.xml)
+
+Use FileUtils class from Apache supplied commons-io.jar
+<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+
+Methods of FileUtils
+
+1. public static byte[] readFileToByteArray(File file)
+                                  throws IOException
+Reads the contents of a file into a byte array. The file is closed after reading the contents.
+
+2. public static void writeByteArrayToFile(File file,
+                        byte[] data)
+                                 throws IOException
+Writes a byte array to a file creating the file if it does not exist.
+
+java.io.File : class representing path to a file or a folder.
+File class constructor
+File(String fileName)
+Methods 
+public boolean isFile()
+public boolean exists();
+public boolean canRead();
+
+Steps for storing image of a specific emp in DB
+1. i/p
+emp id , image file path
+ 2. get emp dtls
+session.get(...) --> emp --null chking 
+no -- PERSISTENT
+string file path --File --isFile n canRead -- readFileToByteArray(File file) --> byte[] : bytes
+emp.setImage(bytes);
+commit
+
+
+Steps for restoring image of a specific emp from DB
+1. i/p
+emp id , new file path for the restored image
+ 2. get emp dtls
+session.get(...) --> emp --null chking 
+no -- PERSISTENT
+emp.getImage() ---> byte[] : bytes
+
+writeByteArrayToFile(file,bytes);
+commit
+
