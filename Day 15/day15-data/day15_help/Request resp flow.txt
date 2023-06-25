@@ -1,0 +1,29 @@
+Request resp flow 
+1. http://host:port/day15.1/
+--> D.S --H.M -->HomePageController.showHomePage   D.S --> invokes req handling method --> rets : LVN + 2 model attrs --> D.S 
+--> LVN --> V.R --> AVN (prefix+LVN+suffix) --> D.S chks for model attrs 
+--> adds model attrs under req scope --> forwards index.jsp 
+Resp : index.jsp 
+
+
+2. After clnt clicks on the "Show All Departments" link
+Req URL : ---http://host:port/day15.1/departments/list
+--> D.S invokes : DepartmentController.getDeptList --> MnV
+---> renders the dept/list.jsp
+Resp : list.jsp
+
+3. After clnt selects dept : RnD
+URL : http://host:port/day15.1/emp/list , method=post
+payload(req body) : dept_id=1
+
+
+4. After clnt clicks on a logout link
+http://localhost:8080/day15.1/emp/logout
+
+http://localhost:8080/day15.1/emp/logout;jsessionid=E78487A6279B9013C753AB27265B821D
+
+
+
+
+
+
