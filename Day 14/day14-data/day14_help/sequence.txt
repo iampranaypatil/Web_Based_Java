@@ -1,0 +1,25 @@
+Revise 
+Spring MVC Flow along with Hibernate integration
+Understand the pain points of extensive configuration ....
+Any solution ? YES !
+
+1. Enter Spring Boot
+Readmes to refer 
+1."day14-data\day14_help\spring boot\spring-boot-steps.txt"
+2. "day14-data\day14_help\spring boot\Why n What is spring boot.txt"
+
+2. Port earlier app to spring boot n continue
+Any problems noticed ?
+YES 
+
+3. Replace hibernate native APIs by JPA
+Refer : "day14-data\day14_help\spring boot\diagrams\jpa-entitymgr-session-layers.png"
+
+
+4. BUT if you notice , in all DAO layers (JDBC / Hibernate / JPA) , you are solving common problems : CRUD 
+So is there any out of box (ready made) solution ?
+YES
+
+Enter Spring Data JPA
+Refer : "day14-data\day14_help\Spring Data JPA\regarding spring data JPA.txt"
+Reference project : day14_boot.
